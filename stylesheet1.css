@@ -180,14 +180,30 @@ iframe{ width: 100%; height: 600px; padding-right: 2em;}
 .formbutton:hover {border-color: #fff;}
 
 
+/*NUESTROS PELEADORES*/
+.grid-container-peleadores {background-color: #111; display: grid; width: 95%; margin-left: 2%; margin-top: 2em;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: (12em, 150px, 1500px, 150px, 150px);}
 
 
+.grid-item-peleadores:first-child {
+    grid-column: 1/3;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 6em;
+    letter-spacing: 0.3em;
+    margin: auto;
+    margin-top: 0.5em;
+    color: #9c9c9c;
+  }
 
+.grid-item-peleadores:nth-child(2) {margin: auto; margin-top: 3em; }
+.peleadorimg {width: 20em; margin-left: 2em; margin-top: 1.5em;}
+.peleadortext { font-family: 'Bebas Neue', cursive; font-size: 2em; margin: auto; color: #9c9c9c; margin-left: .6em;}
 
+.grid-item-peleadores:nth-child(3) {width:560px; height:315px; margin-top: 8.5em; margin-left: -1em;}
 
-
-
-
+.grid-item-peleadores:nth-child(4) {margin: auto; margin-top: 3em; }
+.grid-item-peleadores:nth-child(5) {width:560px; height:315px; margin-top: 8.5em; margin-left: -1em}
 
 
 /*h2  {font-family:'Bebas Neue', cursive; float: right;clear: right; margin-right: 8em; margin-top: 0em; color: #fff!important;}
