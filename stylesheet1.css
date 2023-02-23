@@ -219,6 +219,34 @@ iframe{ width: 100%; height: 600px; padding-right: 2em;}
 
 
 
+/* MAIN QUIENES SOMOS*/
+
+.grid-container-somos {background-color: #111; display: grid; width: 95%; margin-left: 2%; margin-top: 2em;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: (12em, 150px, 1500px, 150px, 150px);}
+
+
+.grid-item-somos:first-child { grid-column: 1/3;
+font-family: 'Bebas Neue', cursive;
+font-size: 7em;
+letter-spacing: 0.3em;
+margin: auto;
+padding-left: .9%;
+margin-top: 0.5em;
+color: #9c9c9c;}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*h2  {font-family:'Bebas Neue', cursive; float: right;clear: right; margin-right: 8em; margin-top: 0em; color: #fff!important;}
 h3  {font-family:'Bebas Neue', cursive; float: right; clear: right; margin-right: 12em; margin: top 0; color: #fff !important;}
 p {font-family:'Bebas Neue', cursive; display:inline-block; text-align:center; margin-left: 40em; color: #fff !important;}
