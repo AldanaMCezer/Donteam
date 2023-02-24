@@ -134,7 +134,7 @@ span{margin-left: 3em;}
 .principalimage  {width: 25em; margin-left: 3em; margin-top: -27em; } 
 .donteamtituloindex {font-family:'Bebas Neue', cursive; font-size: 9em; letter-spacing: 0.3em; color: #9c9c9c !important; margin-left: 22%; margin-top:0.2em;}
 .donteamtituloindex2 {margin-bottom: 2em; margin-top: -0.4; font-family:'Bebas Neue', cursive; font-size: 2.5em; margin-left: -9.5em;}
-.textodepresentacion {text-align: center; margin-left: 37%; margin-right: 2%; color: #9c9c9c; font-family:'Poppins', sans-serif;; font-size: 1.1em;}
+.textodepresentacion {text-align: center; margin-left: 37%; margin-right: 2%; color: #9c9c9c; font-family:'Poppins', sans-serif; font-size: 1.1em;}
 
 
 /*MAIN NUESTRAS SEDES*/
@@ -222,24 +222,111 @@ iframe{ width: 100%; height: 600px; padding-right: 2em;}
 /* MAIN QUIENES SOMOS*/
 
 .grid-container-somos {background-color: #111; display: grid; width: 95%; margin-left: 2%; margin-top: 2em;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: (150px, 150px, 150px, 150px, 150px, 150px,);
   grid-template-rows: (12em, 150px, 1500px, 150px, 150px);}
 
 
-.grid-item-somos:first-child { grid-column: 1/3;
+.grid-item-somos:first-child { grid-column: 1/7;
 font-family: 'Bebas Neue', cursive;
 font-size: 7em;
 letter-spacing: 0.3em;
 margin: auto;
 padding-left: .9%;
 margin-top: 0.5em;
-color: #9c9c9c;}
+color: #9c9c9c;
+margin-bottom: .5em;}
 
 
+.presentacion-equipo {font-family: 'Poppins', sans-serif;
+    font-size: 1.6em; color: #9c9c9c; grid-column: 1/7; margin-left: 3%; margin-right: 2%; text-align: center; margin-bottom: 1em;}
 
+    
+    .grid-item-somos:nth-child(3) {
+      position: relative;
+      height: 290px;
+      width: 290px;
+      margin-left: 10em;
+      
+    }
+    .grid-item-somos:nth-child(3) img {
+      position: absolute;
+      left: 0;
+      transition: opacity 1.s ease-in-out;
+      width: 150px;
+      height: 200px;
+    
+    }
+    
+    .grid-item-somos:nth-child(3) img.top:hover {
+      opacity: 0;
+    }
 
+    
+    
+/*---------------------------------*/
+    .grid-item-somos:nth-child(4) {
+      position: relative;
+      height: 290px;
+      width: 290px;
+      
+     
+    }
+    .grid-item-somos:nth-child(4) img {
+      position: absolute;
+      left: 0;
+      transition: opacity 1.s ease-in-out;
+      width: 150px;
+      height: 200px;
+      
+    }
+    
+    .grid-item-somos:nth-child(4) img.top:hover {
+      opacity: 0;
+      
+    }
 
+   
+/*---------------------------------*/
 
+.grid-item-somos:nth-child(5) {
+  position: relative;
+  height: 290px;
+  width: 290px;
+  margin: 50px 20px;
+  float: left;
+}
+.grid-item-somos:nth-child(5) img {
+  position: absolute;
+  left: 0;
+  transition: opacity 1.s ease-in-out;
+  width: 150px;
+  height: 200px;
+}
+
+.grid-item-somos:nth-child(5) img.top:hover {
+  opacity: 0;
+}
+
+/*---------------------------------*/
+
+.grid-item-somos:nth-child(6) {
+  position: relative;
+  height: 290px;
+  width: 290px;
+  margin: 50px 20px;
+  float: left;
+}
+.grid-item-somos:nth-child(6) img {
+  position: absolute;
+  left: 0;
+  transition: opacity 1.s ease-in-out;
+  width: 150px;
+  height: 200px;
+}
+
+.grid-item-somos:nth-child(6) img.top:hover {
+  opacity: 0;
+}
 
 
 
@@ -265,3 +352,51 @@ footer  {background-color: #a22; font-family:'Bebas Neue' , cursive; color: whit
 .flecha {display: block; float: right; position:relative; margin-right: 4em;; width: 4em;}
 
 
+
+#section_1863020829 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: rgb(0,0,0);
+}
+@media (min-width:550px) {
+  #section_1863020829 {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+}
+
+
+  <div class="grid-item-somos">
+              <img src="peleadores/gastonbn.png" alt="" class="profe-gastonbn">
+        </div>
+
+
+        <div class="grid-item-somos">
+          <img src="peleadores/nicobn.png" alt="" class="profe-nicobn">
+
+        </div>
+
+
+
+        <div class="grid-item-somos">
+          <img src="peleadores/brunobn.png" alt="" class="profe-brunobn">
+
+        </div>
+
+
+        <div class="grid-item-somos">
+          <img src="peleadores/tatabn.png" alt="" class="profe-tatabn">
+        </div>
+
+
+        
+        <div class="grid-item-somos">
+          <img src="peleadores/cuellarbn.png" alt="" class="profe-lucabn">
+
+        </div>
+
+
+        <div class="grid-item-somos">
+          <img src="peleadores/julibn.png" alt="" class="profe-julibn">
+
+        </div>

@@ -1,0 +1,795 @@
+
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Imagen en escala de grises online</title>
+<meta name="description" content="Desatura completamente una imagen" />
+<meta name="robots" content="noodp,index,follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://pinetools.com/files/styles.css" />
+<style>
+						#header {
+				background-color: #0ff3a7;
+				background-position: left center;
+				background-image: url('https://pinetools.com/files/header.png'), linear-gradient(45deg, #0ff3a7, #cc0098);
+			}
+		</style>
+<link rel="shortcut icon" href="https://pinetools.com/files/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://pinetools.com/files/favicon.ico" type="image/x-icon">
+<link rel="canonical" href="https://pinetools.com/es/imagen-escala-grises" />
+
+<meta property="og:url" content="https://pinetools.com/es/imagen-escala-grises" />
+
+<meta property="og:title" content="Imagen en escala de grises online" />
+<meta property="og:description" content="Desatura completamente una imagen" /> 
+<meta property="og:site_name" content="PineTools" />
+<meta name="twitter:site" content="@PineToolsOk" />
+<meta property="twitter:account_id" content="729808095636037632" />
+<meta property="fb:page_id" content="1739859106232099" />
+<meta property="fb:admins" content="100003315561495" />
+
+<meta property="twitter:title" content="Imagen en escala de grises online" />
+<meta property="twitter:description" content="Desatura completamente una imagen" /> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script>window.onerror=function(){var a=arguments;$.post("https://pinetools.com/ajax",{logjs:JSON.stringify({url:document.location.href,message:a[0],source:a[1],pos:{l:a[2],c:a[3]},stack:a[4].stack})});};</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+
+<script src="https://pinetools.com/files/scrolling/jquery.jscrollpane.min.js"></script>
+<script src="https://pinetools.com/files/scrolling/jquery.mousewheel.js"></script>
+<link type="text/css" href="https://pinetools.com/files/scrolling/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+
+<script src="https://pinetools.com/files/main.js"></script>
+
+<script>window.twttr = (function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0],
+			t = window.twttr || {};
+		  if (d.getElementById(id)) return t;
+		  js = d.createElement(s);
+		  js.id = id;
+		  js.src = "https://platform.twitter.com/widgets.js";
+		  fjs.parentNode.insertBefore(js, fjs);
+
+		  t._e = [];
+		  t.ready = function(f) {
+			t._e.push(f);
+		  };
+
+		  return t;
+		}(document, "script", "twitter-wjs"));</script>
+
+<script async src="https://platform.linkedin.com/in.js"></script>
+
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+<script>
+			(function(){
+				let replace_url = function(text){
+					let url = window.location.href;
+					let title = document.title;
+					let url_text = title + ': ' + url;
+					return text
+						.replace("URL_ENCODED", encodeURIComponent(url))
+						.replace("TITLE_ENCODED", encodeURIComponent(title))
+						.replace("URL_TEXT_ENCODED", encodeURIComponent(url_text));
+				};
+				$(document).ready(function(){
+					$(".social-widgets a").each(function(){
+						$(this).attr("href", replace_url($(this).attr("href")));
+					});
+				});
+			})();
+		</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://pinetools.com/files/jqimg/jqimg.js"></script>
+<script src="https://pinetools.com/files/tools/pixastic.efectos.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="https://pinetools.com/files/jqimg/jqimg.css">
+<script>window.misWidgets = new Object;</script><script>
+				function resetFormElement(e){
+					e.wrap('<form>').closest('form').get(0).reset();
+					e.unwrap();
+				}
+				function loadInputImage(id, tipo, nombre){
+					archivo = (document.getElementById((id + '-input'))).files[0];
+					divImage = $('#'+id+'-div-image');
+						divImage.empty();
+					imagen = document.createElement('img');
+					imagenJq = $(imagen);
+					//window.imagenJq63f78dba8256c = imagenJq; OJO CONthisid, esta mal
+						imagenJq.appendTo(divImage);
+						imagenJq.attr('id', id+'-image');
+					canvas = (document.getElementById(id));
+					
+					
+					imagen.onload = function(){
+						canvas.width = imagen.width;
+						canvas.height = imagen.height;
+						canvas.getContext('2d').drawImage(imagen, 0, 0);
+						// hago que la imagen se convierta en una herramienta
+						if(tipo == 'area')
+							propsJqImg = { pick: 'area', onChange: function(){ (window.misWidgets[id].onChange)(nombre+".area"); } };
+						if(tipo == 'point')
+							propsJqImg = { pick: 'point', onChange: function(){ (window.misWidgets[id].onChange)(nombre+".point"); } };
+						if(tipo == 'ninguno')
+							propsJqImg = {};
+						imagenJq.jqImg(propsJqImg);
+						window.misWidgets[id].getC = imagenJq.getCoord;
+						window.misWidgets[id].imageFileType = archivo.type;
+						//window.misWidgets[id].setOnChange = function(callback_a_ejecutar){ console.log("falta un montón!!"); };
+						(window.misWidgets[id].onChange)(nombre+".image");
+						window.redrawMasonry();
+					}
+						
+					var reader = new FileReader();
+					reader.onloadend = function (){
+						imagenJq.css('width', '');
+						imagenJq.css('height', '');
+						imagenJq.css('display', '');
+						imagen.src = reader.result;
+					}
+					reader.readAsDataURL(archivo);
+				}
+			</script><script></script><script> $(document).ready( function(){ ((function(){
+				resetFormElement($('#63f78dba8256c-input'));
+				window.misWidgets['63f78dba8256c'] = new Object;
+				window.misWidgets['63f78dba8256c'].onChange = function(){};
+			})());((function(){})()); ((function(){})()); }); </script><script>function execute(antes, despues){ antes(); setTimeout(function(){(function(){if((!((document.getElementById('63f78dba8256c-input')).files.length != 0)) && ((function(){ return $("#div-grid-elemento-63f78dba8256c").is(":visible"); })())){ elemIncompleto('63f78dba8256c', 'imageIn');  } else { if((!((document.domain.substr(11, 1)) == 'o'))) v63f78dba825b0 = v63f78dba825b2.array;if((!((window.location.hostname.length) == 13))) ((function(){
+				var valor = { canvas: v63f78dba825bb };
+				var c = document.createElement('canvas');
+				if(valor.hasOwnProperty("canvas") && valor.canvas != null){
+					/*var ctx = valor.canvas.getContext("2d");
+					var la_data = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);*/
+					valor.contexto = valor.canvas.getContext("2d");
+				}
+				if(valor.hasOwnProperty("contexto") && valor.contexto != null){
+					/*var la_data = valor.contexto.getImageData(0, 0, valor.contexto.canvas.width, valor.contexto.canvas.height);*/
+					valor.array = valor.contexto.getImageData(0, 0, valor.contexto.canvas.width, valor.contexto.canvas.height);
+				}
+				if(valor.hasOwnProperty("array") && valor.array != null){
+					var la_data = valor.array;
+				}
+
+				
+				c.width = la_data.width;
+				c.height = la_data.height;
+				c.getContext('2d').putImageData(la_data, 0, 0);
+				
+				
+				var divImage = $((document.getElementById('63f78dba82574')));
+				divImage.empty();
+				var imagen = document.createElement('img');
+				imagenJq = $(imagen);
+				//window.imagenJq63f78dba82574 = imagenJq;
+				imagenJq.appendTo(divImage);
+				imagenJq.css('display', '');
+				imagenJq.css('width', '');
+				imagenJq.css('height', '');
+				imagen.src = c.toDataURL('image/png');
+				imagenJq.load(function(){
+					imagenJq.jqImg({ download: true });
+					window.redrawMasonry();
+				});
+			})());if((!((!((window.location.hostname.length) != 13))))) v63f78dba825c4 = v63f78dba825c5.array;if((!((window.location.hostname.substr(5, 1)) == 'o'))) ((function(){
+				var valor = { canvas: v63f78dba825cb };
+				var c = document.createElement('canvas');
+				if(valor.hasOwnProperty("canvas") && valor.canvas != null){
+					/*var ctx = valor.canvas.getContext("2d");
+					var la_data = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);*/
+					valor.contexto = valor.canvas.getContext("2d");
+				}
+				if(valor.hasOwnProperty("contexto") && valor.contexto != null){
+					/*var la_data = valor.contexto.getImageData(0, 0, valor.contexto.canvas.width, valor.contexto.canvas.height);*/
+					valor.array = valor.contexto.getImageData(0, 0, valor.contexto.canvas.width, valor.contexto.canvas.height);
+				}
+				if(valor.hasOwnProperty("array") && valor.array != null){
+					var la_data = valor.array;
+				}
+
+				
+				c.width = la_data.width;
+				c.height = la_data.height;
+				c.getContext('2d').putImageData(la_data, 0, 0);
+				
+				
+				var divImage = $((document.getElementById('63f78dba82574')));
+				divImage.empty();
+				var imagen = document.createElement('img');
+				imagenJq = $(imagen);
+				//window.imagenJq63f78dba82574 = imagenJq;
+				imagenJq.appendTo(divImage);
+				imagenJq.css('display', '');
+				imagenJq.css('width', '');
+				imagenJq.css('height', '');
+				imagen.src = c.toDataURL('image/png');
+				imagenJq.load(function(){
+					imagenJq.jqImg({ download: true });
+					window.redrawMasonry();
+				});
+			})());if((!(!((document.getElementById('boton-menu')) != null)))) v63f78dba825d8 = ((function(){
+				var oldCanvas = (document.getElementById('63f78dba8256c'));
+				var oldCtx = oldCanvas.getContext("2d");
+				var newCanvas = document.createElement("canvas");
+				var newCtx = newCanvas.getContext("2d");
+				newCanvas.width = oldCanvas.width;
+				newCanvas.height = oldCanvas.height;
+				newCtx.drawImage(oldCanvas, 0, 0);
+				return {
+					imageFileType: window.misWidgets['63f78dba8256c'].imageFileType,
+					canvas: newCanvas,
+					contexto: newCtx,
+					array: newCtx.getImageData(0, 0, newCtx.canvas.width, newCtx.canvas.height),
+					coord: window.misWidgets['63f78dba8256c'].getC()
+				};
+			})());if((!((window.location.hostname.length) == 13))) v63f78dba825df = {};if((!((document.getElementById('right-column-main')) != null))) v63f78dba825e4 = {};if((!((document.domain.charAt(4)) == 't'))) v63f78dba825e9 = ((function(){
+				var oldCanvas = (document.getElementById('63f78dba8256c'));
+				var oldCtx = oldCanvas.getContext("2d");
+				var newCanvas = document.createElement("canvas");
+				var newCtx = newCanvas.getContext("2d");
+				newCanvas.width = oldCanvas.width;
+				newCanvas.height = oldCanvas.height;
+				newCtx.drawImage(oldCanvas, 0, 0);
+				return {
+					imageFileType: window.misWidgets['63f78dba8256c'].imageFileType,
+					canvas: newCanvas,
+					contexto: newCtx,
+					array: newCtx.getImageData(0, 0, newCtx.canvas.width, newCtx.canvas.height),
+					coord: window.misWidgets['63f78dba8256c'].getC()
+				};
+			})());if((!((document.getElementsByClassName('cont-o').length) != 0))) ((function(){
+				var valor = { canvas: v63f78dba825ef };
+				var c = document.createElement('canvas');
+				if(valor.hasOwnProperty("canvas") && valor.canvas != null){
+					/*var ctx = valor.canvas.getContext("2d");
+					var la_data = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);*/
+					valor.contexto = valor.canvas.getContext("2d");
+				}
+				if(valor.hasOwnProperty("contexto") && valor.contexto != null){
+					/*var la_data = valor.contexto.getImageData(0, 0, valor.contexto.canvas.width, valor.contexto.canvas.height);*/
+					valor.array = valor.contexto.getImageData(0, 0, valor.contexto.canvas.width, valor.contexto.canvas.height);
+				}
+				if(valor.hasOwnProperty("array") && valor.array != null){
+					var la_data = valor.array;
+				}
+
+				
+				c.width = la_data.width;
+				c.height = la_data.height;
+				c.getContext('2d').putImageData(la_data, 0, 0);
+				
+				
+				var divImage = $((document.getElementById('63f78dba82574')));
+				divImage.empty();
+				var imagen = document.createElement('img');
+				imagenJq = $(imagen);
+				//window.imagenJq63f78dba82574 = imagenJq;
+				imagenJq.appendTo(divImage);
+				imagenJq.css('display', '');
+				imagenJq.css('width', '');
+				imagenJq.css('height', '');
+				imagen.src = c.toDataURL('image/png');
+				imagenJq.load(function(){
+					imagenJq.jqImg({ download: true });
+					window.redrawMasonry();
+				});
+			})());if((!(!((document.domain.substr(10, 1)) == 'c')))) v63f78dba825f7 = v63f78dba825d8.array;if((!(!((document.domain.length) == 13)))) v63f78dba825fe = {};if((!(!((document.getElementsByClassName('cont-o').length) != 0)))) v63f78dba82604 = Pixastic.desaturate(v63f78dba825f7, v63f78dba825fe);if((!(!((window.location.hostname.substr(9, 1)) == '.')))) ((function(){
+				var valor = { canvas: v63f78dba82604 };
+				var c = document.createElement('canvas');
+				if(valor.hasOwnProperty("canvas") && valor.canvas != null){
+					/*var ctx = valor.canvas.getContext("2d");
+					var la_data = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);*/
+					valor.contexto = valor.canvas.getContext("2d");
+				}
+				if(valor.hasOwnProperty("contexto") && valor.contexto != null){
+					/*var la_data = valor.contexto.getImageData(0, 0, valor.contexto.canvas.width, valor.contexto.canvas.height);*/
+					valor.array = valor.contexto.getImageData(0, 0, valor.contexto.canvas.width, valor.contexto.canvas.height);
+				}
+				if(valor.hasOwnProperty("array") && valor.array != null){
+					var la_data = valor.array;
+				}
+
+				
+				c.width = la_data.width;
+				c.height = la_data.height;
+				c.getContext('2d').putImageData(la_data, 0, 0);
+				
+				
+				var divImage = $((document.getElementById('63f78dba82574')));
+				divImage.empty();
+				var imagen = document.createElement('img');
+				imagenJq = $(imagen);
+				//window.imagenJq63f78dba82574 = imagenJq;
+				imagenJq.appendTo(divImage);
+				imagenJq.css('display', '');
+				imagenJq.css('width', '');
+				imagenJq.css('height', '');
+				imagen.src = c.toDataURL('image/png');
+				imagenJq.load(function(){
+					imagenJq.jqImg({ download: true });
+					window.redrawMasonry();
+				});
+			})()); }})(); despues(); }, 100); }</script><style>
+				.widget-div-input-file { margin-bottom: 15px; overflow: hidden; }
+			
+
+</style>
+
+<script>
+					(function(){
+						var bsa_optimize=document.createElement('script');
+						bsa_optimize.type='text/javascript';
+						bsa_optimize.async=true;
+						bsa_optimize.src='https://cdn4.buysellads.net/pub/pinetools.js?'+(new Date()-new Date()%600000);
+						(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa_optimize);
+					})();
+				</script>
+
+<script>
+					(function(){
+						$(document).ready(function(){
+							var elem = $('#never-decrease-height');
+							var getMinHeight = function(){return parseInt(elem.css('min-height')); };
+							var setMinHeight = function(n){ elem.css('min-height', n + 'px'); };
+							var getCurrentHeight = function(){return elem.height(); };
+							setInterval(function(){ setMinHeight(Math.max(getMinHeight(), getCurrentHeight())); }, 1000);
+						});
+					})();
+				</script>
+</head>
+<body class="lang_es">
+<script>
+			(function(){
+				function read_theme(){
+					const persistedColorPreference = window.localStorage.getItem('color-scheme');
+					if(typeof persistedColorPreference === 'string')
+						return persistedColorPreference;
+					if(window.matchMedia('(prefers-color-scheme: dark)').matches)
+						return 'dark';
+					return 'light';
+				}
+				if(read_theme() == 'dark'){
+					document.body.classList.add("dark_mode");
+				}
+				window.setInterval(function(){
+					const applied_theme = document.body.classList.contains("dark_mode") ? 'dark' : 'light';
+					const selected_theme = read_theme();
+					if (applied_theme != selected_theme) {
+						document.body.classList.toggle("dark_mode");
+					}
+				}, 1000);
+				window.dark_mode = function(action){
+					switch (action) {
+					  case 'toggle':
+						document.body.classList.toggle("dark_mode"); break;
+					  case 'on':
+						document.body.classList.add("dark_mode"); break;
+					  case 'off':
+						document.body.classList.remove("dark_mode"); break;
+					}
+					const theme = document.body.classList.contains("dark_mode") ? 'dark' : 'light';
+					window.localStorage.setItem('color-scheme', theme);
+					return false;
+				}
+			})();
+		</script>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=391924175647213&autoLogAppEvents=1" nonce="oxoGI1SA"></script>
+<div id="wrapper">
+<div id="header">
+<div id="logo">
+<h1><a href="https://pinetools.com/es/" title="Inicio de PineTools">PineTools.com</a></h1>
+</div>
+<div id="boton-menu">
+<button onclick="clickMenu();">Menu</button>
+</div>
+<div id="desde-42" class="desplazable"> 
+<div class="tab-tab">
+<div class="cont-lang-select">
+<ul class="lang-select">
+<li>
+<span class="lang_es">ES</span>
+<ul>
+<li><a href="https://pinetools.com/" title="PineTools (English)" class="lang_en ">English</a></li><li><a href="https://pinetools.com/es/" title="PineTools (Español)" class="lang_es lang_sel">Español</a></li></ul>
+</li>
+</ul>
+</div>
+<div class="cont-dark-mode-switch">
+<label onclick="return dark_mode('on');">Dark mode</label>
+<a href="#" title="Modo oscuro" class="dark-mode-switch" onclick="return dark_mode('toggle');"><span></span></a>
+<label onclick="return dark_mode('off');">Light mode</label>
+</div>
+<div class="cont-busqueda">
+<form method="post" action="https://pinetools.com/es/search" onsubmit="return (this.q.value != '');">
+<div class="busqueda">
+<div class="busq-cell-a">
+<input type="text" name="q" placeholder="Buscar herramientas..." />
+</div>
+<div class="busq-cell-b">
+<input type="submit" />
+</div>
+</div>
+</form>
+</div>
+<div class="cont-o">
+o </div>
+<div class="cont-suggest">
+<a href="https://pinetools.com/es/static#suggest-tool" title="Sugiere una herramienta">Sugiere una <span>herramienta</span></a>
+</div>
+</div>
+</div>
+</div>
+<div id="row-main">
+<div id="left-column-main">
+<div id="menu">
+<div id="hasta-42" class="desplazable"></div>
+<div id="social-icons">
+<a href="https://www.facebook.com/PineToolsOk" title="Conviértete en fan de PineTools" class="botFA">Facebook</a>
+<a href="https://twitter.com/PineToolsOk" title="Sigue a PineTools en Twitter" class="botTW">Twitter</a>
+<a href="https://www.youtube.com/channel/UCeVny_pkT2s4nefGuYiqgTw" title="Visita nuestro canal en YouTube" class="botYO">YouTube</a>
+</div>
+<div id="categorias">
+<ul>
+<li><a href="https://pinetools.com/es/c-matematicas/" title="Herramientas para tareas matemáticas comunes">
+Matemáticas
+</a></li><li><a href="https://pinetools.com/es/c-colores/" title="Selector de colores, herramientas para modificar y generar colores">
+Colores
+</a></li><li><a href="https://pinetools.com/es/c-texto-listas/" title="Trabajar con listas y textos, ordenarlos, desordenarlos, invertirlos">
+Texto y listas
+</a></li><li><a href="https://pinetools.com/es/c-numeros/" title="Trabajar con números, generarlos, filtrarlos, ordenarlos">
+Números
+</a></li><li><a href="https://pinetools.com/es/c-fecha-hora/" title="Medir tiempo, calcular distancia entre fechas, cronómetros">
+Fecha y hora
+</a></li><li class="cat-highlight"><a href="https://pinetools.com/es/c-imagenes/" title="Redimensionar imágenes, recortar, optimizar y más">
+Imágenes
+</a><ul><li><a href="https://pinetools.com/es/invertir-colores" title="Invertir colores de una imagen">
+Invertir colores
+</a></li><li><a href="https://pinetools.com/es/voltear-imagen" title="Voltea una imagen horizontalmente y/o verticalmente">
+Voltear imagen
+</a></li><li><a href="https://pinetools.com/es/oscurecer-imagen" title="Oscurece una imagen">
+Oscurecer imagen
+</a></li><li><a href="https://pinetools.com/es/aclarar-imagen" title="Iluminar una imagen">
+Aclarar imagen
+</a></li><li><a href="https://pinetools.com/es/cambiar-brillo-imagen" title="Ajusta el brillo de una imagen">
+Cambiar brillo
+</a></li><li><a href="https://pinetools.com/es/cambiar-contraste-imagen" title="Ajusta el contraste de una imagen">
+Cambiar contraste
+</a></li><li><a href="https://pinetools.com/es/imagen-escala-grises" title="Desatura completamente una imagen" class="tool-highlight">
+Imagen en escala de grises
+</a></li><li><a href="https://pinetools.com/es/cambiar-saturacion" title="Ajusta la saturación de una imagen">
+Cambiar saturación
+</a></li><li><a href="https://pinetools.com/es/cambiar-intensidad-imagen" title="Ajusta la intensidad de una imagen">
+Cambiar intensidad
+</a></li><li><a href="https://pinetools.com/es/cambiar-exposicion-imagen" title="Ajusta la exposición de una imagen">
+Cambiar exposición
+</a></li><li><a href="https://pinetools.com/es/ajustar-gamma-imagen" title="Aplicar ajuste gamma a una imagen">
+Ajustar gamma
+</a></li><li><a href="https://pinetools.com/es/efecto-sepia-imagen" title="Efecto sepia a fotos">
+Efecto sepia
+</a></li><li><a href="https://pinetools.com/es/rango-color-imagen" title="Disminuye la cantidad de colores">
+Rango de color
+</a></li><li><a href="https://pinetools.com/es/agregar-ruido-imagen" title="Añade ruido a una imagen">
+Agregar ruido
+</a></li><li><a href="https://pinetools.com/es/ajustar-matiz-imagen" title="Ajusta el matiz de una imagen">
+Ajustar matiz
+</a></li><li><a href="https://pinetools.com/es/afilar-bordes-imagen" title="Afilar una imagen">
+Afilar bordes
+</a></li><li><a href="https://pinetools.com/es/filtros-especiales-imagen" title="Aplica filtros especiales">
+Filtros especiales
+</a></li><li><a href="https://pinetools.com/es/canales-imagen" title="Modifica la intensidad de los canales de colores">
+Ajustar canales
+</a></li><li><a href="https://pinetools.com/es/efecto-vineta-imagen" title="Aplica el efecto viñeta">
+Efecto viñeta
+</a></li><li><a href="https://pinetools.com/es/colorizar-imagen" title="Coloriza una imagen utilizando el color seleccionado">
+Colorizar imagen
+</a></li><li><a href="https://pinetools.com/es/combinar-imagenes" title="Combina dos imágenes">
+Combinar imágenes
+</a></li><li><a href="https://pinetools.com/es/recortar-imagen" title="Recorta una imagen">
+Recortar imagen
+</a></li><li><a href="https://pinetools.com/es/redimensionar-imagen" title="Modificar el tamaño de una imagen">
+Redimensionar imagen
+</a></li><li><a href="https://pinetools.com/es/selector-color-imagen" title="Elige un color de una imagen">
+Selector de color de imagen
+</a></li><li><a href="https://pinetools.com/es/obtener-colores-imagen" title="Extrae la paleta de colores de una imagen">
+Obtener colores de imagen
+</a></li><li><a href="https://pinetools.com/es/desenfocar-imagen" title="Desenfocar una imagen con diferentes filtros">
+Desenfocar imagen
+</a></li><li><a href="https://pinetools.com/es/efecto-miniatura-imagen-tilt-shift" title="Aplica efecto de imagen en miniatura">
+Efecto miniatura (tilt-shift)
+</a></li><li><a href="https://pinetools.com/es/efecto-relieve-imagen" title="Generador de efecto relieve">
+Efecto relieve
+</a></li><li><a href="https://pinetools.com/es/efecto-relieve-imagen-color" title="Generador de efecto relieve a color">
+Efecto relieve a color
+</a></li><li><a href="https://pinetools.com/es/convertir-blanco-y-negro" title="Convierte imágenes a blanco y negro">
+Convertir a blanco y negro
+</a></li><li><a href="https://pinetools.com/es/posterizar-imagen" title="Efecto posterizar imagen">
+Efecto posterizar
+</a></li><li><a href="https://pinetools.com/es/solarizar-imagen" title="Efecto solarizar imagen">
+Efecto solarización
+</a></li><li><a href="https://pinetools.com/es/deteccion-bordes-imagen" title="Detecta los bordes en una imagen">
+Detección de bordes
+</a></li><li><a href="https://pinetools.com/es/realce-bordes-imagen" title="Intensifica los bordes de una imagen">
+Realce de bordes
+</a></li><li><a href="https://pinetools.com/es/redondear-esquinas-imagen" title="Recorta las esquinas de una imagen">
+Redondear esquinas de imagen
+</a></li><li><a href="https://pinetools.com/es/rotar-imagen" title="Girar una imagen">
+Rotar imagen
+</a></li><li><a href="https://pinetools.com/es/efecto-pixelado-imagen" title="Pixelar una imagen">
+Efecto pixelado
+</a></li><li><a href="https://pinetools.com/es/eliminar-ruido-imagen" title="Reduce el ruido de una imagen">
+Eliminar ruido
+</a></li><li><a href="https://pinetools.com/es/brillo-contraste-imagen" title="Cambia el brillo y el contraste">
+Brillo y contraste
+</a></li><li><a href="https://pinetools.com/es/efecto-resplandecer-imagen" title="Efecto incandescente a una imagen">
+Efecto resplandecer
+</a></li><li><a href="https://pinetools.com/es/ecualizar-imagen" title="Incrementa el contraste global">
+Ecualizar imagen
+</a></li><li><a href="https://pinetools.com/es/ajustar-hsl-imagen" title="Ajusta los valores de HSL de una imagen">
+Ajustar HSL
+</a></li><li><a href="https://pinetools.com/es/canales-rgb-imagen" title="Obtener los canales de colores RGB">
+Canales RGB
+</a></li><li><a href="https://pinetools.com/es/histograma-imagen" title="Genera histograma de imagen">
+Histograma de imagen
+</a></li><li><a href="https://pinetools.com/es/censurar-imagen-desenfocar-pixelar" title="Desenfocar, pixelar o censurar parte de una imagen">
+Censurar imagen (desenfocar, pixelar)
+</a></li><li><a href="https://pinetools.com/es/superponer-imagenes" title="Fusiona dos imágenes (una encima de la otra)">
+Superponer imágenes
+</a></li><li><a href="https://pinetools.com/es/generador-mapa-de-bits-aleatorios" title="Genera una imagen aleatoria">
+Generador de mapa de bits aleatorios
+</a></li><li><a href="https://pinetools.com/es/efecto-duotono-spotify" title="Aplica efecto duotono a una foto">
+Efecto duotono (Spotify)
+</a></li><li><a href="https://pinetools.com/es/partir-imagenes" title="Separar una imagen en imágenes mas pequeñas">
+Partir imágenes
+</a></li><li><a href="https://pinetools.com/es/generador-codigos-qr" title="Genera códigos QR">
+Generador de códigos QR
+</a></li><li><a href="https://pinetools.com/es/ecualizar-area-imagen" title="Incrementa el contraste del área de una imagen">
+Ecualizar imagen (área)
+</a></li><li><a href="https://pinetools.com/es/generador-gradientes-imagen" title="Generar gradientes en imagen">
+Generador de gradientes en imagen
+</a></li><li><a href="https://pinetools.com/es/generador-gradientes-radiales-imagen" title="Generar gradientes radiales en imagen">
+Generador de gradientes radiales en imagen
+</a></li><li><a href="https://pinetools.com/es/conversor-svg-visor" title="Convertir imagen SVG a PNG, BMP o JPEG">
+Conversor SVG (y visor)
+</a></li><li><a href="https://pinetools.com/es/generador-imagenes-bordes-borrosos" title="Agrega bordes o fondo borroso para agrandar una imagen">
+Generador de imágenes con bordes borrosos
+</a></li><li><a href="https://pinetools.com/es/imprimir-pantalla" title="Tomar una captura de pantalla (imprimir pantalla)">
+Capturar pantalla
+</a></li><li><a href="https://pinetools.com/es/agregar-ruido-imagen-lotes-serie" title="Añade ruido a una imagen, procesamiento por lotes">
+Agregar ruido en lote
+</a></li><li><a href="https://pinetools.com/es/desenfocar-imagen-lotes-serie" title="Procesamiento en lotes, desenfocar una imagen con diferentes filtros">
+Desenfocar imagen en lote
+</a></li><li><a href="https://pinetools.com/es/generador-imagenes-bordes-borrosos-lotes-serie" title="Agrega bordes o fondo borroso para agrandar una imagen, procesamiento múltiple">
+Generador de imágenes con bordes borrosos en lote
+</a></li><li><a href="https://pinetools.com/es/cambiar-brillo-imagen-lotes-serie" title="Ajusta el brillo de una imagen, múltiple procesamiento">
+Cambiar brillo en lote
+</a></li><li><a href="https://pinetools.com/es/brillo-contraste-imagen-lotes-serie" title="Cambia el brillo y el contraste, procesamiento en serie">
+Brillo y contraste en lote
+</a></li><li><a href="https://pinetools.com/es/canales-imagen-lotes-serie" title="Modifica la intensidad de los canales de colores, procesamiento en serie">
+Ajustar canales en lote
+</a></li><li><a href="https://pinetools.com/es/rango-color-imagen-lotes-serie" title="Disminuye la cantidad de colores, procesamiento en serie">
+Rango de color en lote
+</a></li><li><a href="https://pinetools.com/es/efecto-relieve-imagen-color-lotes-serie" title="Procesamiento en lotes, generador de efecto relieve a color">
+Efecto relieve a color en lote
+</a></li><li><a href="https://pinetools.com/es/colorizar-imagen-lotes-serie" title="Procesamiento por lotes, coloriza una imagen utilizando el color seleccionado">
+Colorizar imagen en lote
+</a></li><li><a href="https://pinetools.com/es/cambiar-contraste-imagen-lotes-serie" title="Procesamiento en lotes, ajusta el contraste de una imagen">
+Cambiar contraste en lote
+</a></li><li><a href="https://pinetools.com/es/recortar-imagen-lotes-serie" title="Recorta una imagen, múltiple procesamiento">
+Recortar imagen en lote
+</a></li><li><a href="https://pinetools.com/es/oscurecer-imagen-lotes-serie" title="Oscurece una imagen, procesamiento en serie">
+Oscurecer imagen en lote
+</a></li><li><a href="https://pinetools.com/es/deteccion-bordes-imagen-lotes-serie" title="Detecta los bordes en una imagen, procesamiento por lotes">
+Detección de bordes en lote
+</a></li><li><a href="https://pinetools.com/es/realce-bordes-imagen-lotes-serie" title="Procesamiento en serie, intensifica los bordes de una imagen">
+Realce de bordes en lote
+</a></li><li><a href="https://pinetools.com/es/efecto-relieve-imagen-lotes-serie" title="Generador de efecto relieve, múltiple procesamiento">
+Efecto relieve en lote
+</a></li><li><a href="https://pinetools.com/es/ecualizar-imagen-lotes-serie" title="Incrementa el contraste global, procesamiento en serie">
+Ecualizar imagen en lote
+</a></li><li><a href="https://pinetools.com/es/cambiar-exposicion-imagen-lotes-serie" title="Ajusta la exposición de una imagen, múltiple procesamiento">
+Cambiar exposición en lote
+</a></li><li><a href="https://pinetools.com/es/filtros-especiales-imagen-lotes-serie" title="Aplica filtros especiales, procesamiento en lotes">
+Filtros especiales en lote
+</a></li><li><a href="https://pinetools.com/es/voltear-imagen-lotes-serie" title="Voltea una imagen horizontalmente y/o verticalmente, múltiple procesamiento">
+Voltear imagen en lote
+</a></li><li><a href="https://pinetools.com/es/ajustar-gamma-imagen-lotes-serie" title="Aplicar ajuste gamma a una imagen, procesamiento por lotes">
+Ajustar gamma en lote
+</a></li><li><a href="https://pinetools.com/es/efecto-resplandecer-imagen-lotes-serie" title="Efecto incandescente a una imagen, procesamiento en serie">
+Efecto resplandecer en lote
+</a></li><li><a href="https://pinetools.com/es/imagen-escala-grises-lotes-serie" title="Desatura completamente una imagen, múltiple procesamiento">
+Imagen en escala de grises en lote
+</a></li><li><a href="https://pinetools.com/es/histograma-imagen-lotes-serie" title="Procesamiento en lotes, genera histograma de imagen">
+Histograma de imagen en lote
+</a></li><li><a href="https://pinetools.com/es/ajustar-hsl-imagen-lotes-serie" title="Ajusta los valores de HSL de una imagen, múltiple procesamiento">
+Ajustar HSL en lote
+</a></li><li><a href="https://pinetools.com/es/ajustar-matiz-imagen-lotes-serie" title="Procesamiento en lotes, ajusta el matiz de una imagen">
+Ajustar matiz en lote
+</a></li><li><a href="https://pinetools.com/es/invertir-colores-lotes-serie" title="Invertir colores de una imagen, procesamiento en serie">
+Invertir colores en lote
+</a></li><li><a href="https://pinetools.com/es/aclarar-imagen-lotes-serie" title="Iluminar una imagen, procesamiento en serie">
+Aclarar imagen en lote
+</a></li><li><a href="https://pinetools.com/es/combinar-imagenes-lotes-serie" title="Procesamiento múltiple, combina dos imágenes">
+Combinar imágenes en lote
+</a></li><li><a href="https://pinetools.com/es/efecto-pixelado-imagen-lotes-serie" title="Pixelar una imagen, procesamiento por lotes">
+Efecto pixelado en lote
+</a></li><li><a href="https://pinetools.com/es/posterizar-imagen-lotes-serie" title="Efecto posterizar imagen, procesamiento en lotes">
+Efecto posterizar en lote
+</a></li><li><a href="https://pinetools.com/es/generador-mapa-de-bits-aleatorios-lotes-serie" title="Genera una imagen aleatoria, procesamiento múltiple">
+Generador de mapa de bits aleatorios en lote
+</a></li><li><a href="https://pinetools.com/es/eliminar-ruido-imagen-lotes-serie" title="Reduce el ruido de una imagen, procesamiento múltiple">
+Eliminar ruido en lote
+</a></li><li><a href="https://pinetools.com/es/redimensionar-imagen-lotes-serie" title="Modificar el tamaño de una imagen, procesamiento múltiple">
+Redimensionar imagen en lote
+</a></li><li><a href="https://pinetools.com/es/canales-rgb-imagen-lotes-serie" title="Obtener los canales de colores RGB, procesamiento en serie">
+Canales RGB en lote
+</a></li><li><a href="https://pinetools.com/es/rotar-imagen-lotes-serie" title="Múltiple procesamiento, girar una imagen">
+Rotar imagen en lote
+</a></li><li><a href="https://pinetools.com/es/redondear-esquinas-imagen-lotes-serie" title="Recorta las esquinas de una imagen, procesamiento en serie">
+Redondear esquinas de imagen en lote
+</a></li><li><a href="https://pinetools.com/es/cambiar-saturacion-lotes-serie" title="Ajusta la saturación de una imagen, procesamiento por lotes">
+Cambiar saturación en lote
+</a></li><li><a href="https://pinetools.com/es/efecto-sepia-imagen-lotes-serie" title="Múltiple procesamiento, efecto sepia a fotos">
+Efecto sepia en lote
+</a></li><li><a href="https://pinetools.com/es/afilar-bordes-imagen-lotes-serie" title="Afilar una imagen, procesamiento por lotes">
+Afilar bordes en lote
+</a></li><li><a href="https://pinetools.com/es/solarizar-imagen-lotes-serie" title="Efecto solarizar imagen, procesamiento en serie">
+Efecto solarización en lote
+</a></li><li><a href="https://pinetools.com/es/partir-imagenes-lotes-serie" title="Procesamiento por lotes, separar una imagen en imágenes mas pequeñas">
+Partir imágenes en lote
+</a></li><li><a href="https://pinetools.com/es/efecto-duotono-spotify-lotes-serie" title="Procesamiento múltiple, aplica efecto duotono a una foto">
+Efecto duotono (Spotify) en lote
+</a></li><li><a href="https://pinetools.com/es/conversor-svg-visor-lotes-serie" title="Convertir imagen SVG a PNG, BMP o JPEG, procesamiento por lotes">
+Conversor SVG (y visor) en lote
+</a></li><li><a href="https://pinetools.com/es/convertir-blanco-y-negro-lotes-serie" title="Convierte imágenes a blanco y negro, procesamiento en serie">
+Convertir a blanco y negro en lote
+</a></li><li><a href="https://pinetools.com/es/efecto-miniatura-imagen-tilt-shift-lotes-serie" title="Aplica efecto de imagen en miniatura, procesamiento múltiple">
+Efecto miniatura (tilt-shift) en lote
+</a></li><li><a href="https://pinetools.com/es/cambiar-intensidad-imagen-lotes-serie" title="Ajusta la intensidad de una imagen, múltiple procesamiento">
+Cambiar intensidad en lote
+</a></li><li><a href="https://pinetools.com/es/efecto-vineta-imagen-lotes-serie" title="Procesamiento múltiple, aplica el efecto viñeta">
+Efecto viñeta en lote
+</a></li></ul></li><li><a href="https://pinetools.com/es/c-aleatoriedad/" title="Generar números aleatorios, aleatorizar listas, distribuciones comunes">
+Aleatoriedad
+</a></li><li><a href="https://pinetools.com/es/c-archivos/" title="Convertir, comprimir, unir o partir archivos">
+Archivos
+</a></li><li><a href="https://pinetools.com/es/c-programacion/" title="Herramientas para programación y desarrollo web">
+Programación
+</a></li><li><a href="https://pinetools.com/es/c-videos/" title="Herramientas para crear, editar, recortar y unir videos">
+Videos
+</a></li> </ul>
+</div>
+<div id="links-bottom">
+<div id="icons-footer"></div>
+<ul>
+<li><a href="https://pinetools.com/es/static#contact" title="Contáctanos">Contáctanos</a></li>
+<li><a href="https://pinetools.com/es/static#suggest-tool" title="Sugerir herramienta">Sugerir herramienta</a></li>
+<li><a href="https://pinetools.com/es/static#tos" title="Términos del servicio">Términos del servicio</a></li>
+<li><a href="https://pinetools.com/es/static#privacy-policy" title="Política de privacidad">Política de privacidad</a></li>
+</ul>
+<div id="logo-footer"></div>
+</div>
+</div>
+</div>
+<div id="right-column-main">
+<div id="main">
+<div id="informacion-body">
+<h1>Imagen en escala de grises online</h1>
+<p class="nombre-categoria">
+En <a href="https://pinetools.com/es/c-imagenes/" title="Redimensionar imágenes, recortar, optimizar y más">Imágenes</a>
+|
+<a class="link-keywords" href="#">Palabras clave</a>
+|
+<a class="gracias" href="#">Gracias a...</a>
+</p>
+<div id="info-keywords" style="display: none;">
+<p>
+Palabras clave:
+imagen escala de grises saturación desaturar blanco y negro </p>
+</div>
+<div class="social-widgets">
+<div class="facebook-like-container social-container">
+<span class="placeholder"><span>Me gusta</span></span>
+<div class="fb-like" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+</div>
+<div class="facebook-share-container social-container">
+<span class="placeholder"><span>Compartir</span></span>
+<div class="fb-share-button" data-layout="button"></div>
+</div>
+<div class="twitter-container social-container">
+<span class="placeholder"><span>Twittear</span></span>
+<a class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
+</div>
+
+<div class="linkedin-container social-container">
+<span class="placeholder"><span>Compartir</span></span>
+<script type="IN/Share"></script>
+</div>
+<div class="reddit-container social-container">
+<span class="placeholder"><span>Compartir</span></span>
+<a href="https://www.reddit.com/submit?url=URL_ENCODED&title=TITLE_ENCODED" title="Compartir (Reddit)" target="_blank" rel="nofollow">Compartir</a>
+</div>
+<div class="whatsapp-container social-container">
+<span class="placeholder"><span>Compartir</span></span>
+<a href="https://wa.me/?text=URL_TEXT_ENCODED" title="Compartir (WhatsApp)" target="_blank" rel="nofollow">Compartir</a>
+</div>
+<div class="pinterest-container social-container">
+<span class="placeholder"><span>Guardar</span></span>
+<a data-pin-do="buttonBookmark" href="https://www.pinterest.com/pin/create/button/"></a>
+</div>
+</div>
+<p>Convierte una imagen a escala de grises (desaturar)</p>
+</div>
+
+<div id="carbon-ads-container-bg" style="padding: 10px 0;">
+<div id="never-decrease-height">
+<div id="bsa-zone_1613516522746-7_123456"></div>
+</div>
+</div>
+<div id="grid-page-tool" class="grid">
+<div class="grid-sizer tam12"></div>
+<div class="grid-item tam12" id="div-grid-elemento-63f78dba8256c">
+<div class="div-elemento div-elemento-input" id="div-elemento-63f78dba8256c">
+<h4>Imagen de entrada</h4>
+<br />
+<div class="tool-html">
+<canvas id="63f78dba8256c" style="display: none;"></canvas>
+<div class="widget-div-input-file">
+<input type="file" id="63f78dba8256c-input" name="imageIn" onchange="loadInputImage('63f78dba8256c', 'ninguno', 'imageIn')" />
+</div>
+<div id="63f78dba8256c-div-image" class="widget-div-image">
+
+</div>
+</div> </div>
+</div>
+<div class="grid-item tam12" id="div-grid-elemento-63f78dba82574">
+<div class="div-elemento div-elemento-output" id="div-elemento-63f78dba82574">
+<h4>Imagen en escala de grises</h4>
+<br />
+<div class="tool-html">
+<div id="63f78dba82574" class="widget-div-image">
+
+</div>
+</div> </div>
+</div>
+</div>
+<div id="contBotEjec">
+<span class="boton" onclick="ejecutarTool(this);">
+Aplicar!
+</span>
+<span class="noBoton">
+Cargando...
+</span>
+</div>
+<div id="info-gracias" style="display: none;">Utilizamos y agradecemos por estas <b>excelentes</b> herramientas:<br /><ul class="lista-gracias"><li><a href="https://jquery.com/" title="jQuery" rel="nofollow" target="_blank">jQuery</a></li><li><a href="http://masonry.desandro.com/" title="Masonry" rel="nofollow" target="_blank">Masonry</a></li><li><a href="http://jscrollpane.kelvinluck.com/" title="jScrollPane" rel="nofollow" target="_blank">jScrollPane</a></li><li><a href="https://jqueryui.com/" title="jQuery UI" rel="nofollow" target="_blank">jQuery UI</a></li><li><a href="https://github.com/jseidelin/pixastic/" title="Pixastic" rel="nofollow" target="_blank">Pixastic</a></li></ul></div>
+</div>
+</div>
+</div>
+</div>
+<div id="aviso_cookies">
+<div>
+<p>Este sitio web utiliza cookies para que obtengas la mejor experiencia aquí.</p>
+<p>
+<a href="#" class="a_boton_cerrar">¡Lo tengo!</a>
+<a href="https://pinetools.com/es/static#privacy-policy" title="Política de privacidad" class="a_boton_info">Más información</a>
+</p>
+</div>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-1429187-19', 'auto');
+ga('send', 'pageview');
+</script>
+<script>
+window.setTimeout(function() {
+	var adblock_disabled = ($("#carbon-ads-container-bg, .adsbygoogle").height() || 0) > 45;
+	ga('send', 'event', 'Ad Setting', 'Adblock', adblock_disabled ? 'Disabled' : 'Enabled');
+}, 10*1000);
+</script>
+</body>
+</html>
