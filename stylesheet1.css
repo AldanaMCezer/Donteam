@@ -252,7 +252,11 @@ margin-bottom: .5em;}
       margin-bottom: 2em;
             
     }
+    .grid-item-somos:nth-child(3) img.top:hover {
+      opacity: 0;
+    }
 
+  
     .grid-item-somos:nth-child(3) img {
       position: absolute;
       left: 0;
@@ -262,11 +266,8 @@ margin-bottom: .5em;}
     
     }
     
-    .grid-item-somos:nth-child(3) img.top:hover {
-      opacity: 0;
-    }
-
     
+
     
 /*---------------------------------*/
     .grid-item-somos:nth-child(4) {
@@ -374,7 +375,17 @@ margin-bottom: .5em;}
   opacity: 0;
 }
 
+/*--------------------------------*/
+.grid-item-somos:nth-child(9) {text-align: center; }
+.grid-item-somos:nth-child(10) {text-align: center; }
+.grid-item-somos:nth-child(11) {text-align: center}
+.grid-item-somos:nth-child(12) {text-align: center}
+.grid-item-somos:nth-child(13) {text-align: center}
+.grid-item-somos:nth-child(14) {text-align: center}
 
+
+.nombreprofe {font-family: 'Bebas Neue', cursive; font-size: 1.5em; display: inline; color: #9c9c9c; margin-top: -1em; }
+.rolprofe { display: inline; color: #9c9c9c; margin-top: 1em; display: block;}
 
 /*h2  {font-family:'Bebas Neue', cursive; float: right;clear: right; margin-right: 8em; margin-top: 0em; color: #fff!important;}
 h3  {font-family:'Bebas Neue', cursive; float: right; clear: right; margin-right: 12em; margin: top 0; color: #fff !important;}
@@ -406,39 +417,3 @@ footer  {background-color: #a22; font-family:'Bebas Neue' , cursive; color: whit
     padding-bottom: 75px;
   }
 }
-
-
-  <div class="grid-item-somos">
-              <img src="peleadores/gastonbn.png" alt="" class="profe-gastonbn">
-        </div>
-
-
-        <div class="grid-item-somos">
-          <img src="peleadores/nicobn.png" alt="" class="profe-nicobn">
-
-        </div>
-
-
-
-        <div class="grid-item-somos">
-          <img src="peleadores/brunobn.png" alt="" class="profe-brunobn">
-
-        </div>
-
-
-        <div class="grid-item-somos">
-          <img src="peleadores/tatabn.png" alt="" class="profe-tatabn">
-        </div>
-
-
-        
-        <div class="grid-item-somos">
-          <img src="peleadores/cuellarbn.png" alt="" class="profe-lucabn">
-
-        </div>
-
-
-        <div class="grid-item-somos">
-          <img src="peleadores/julibn.png" alt="" class="profe-julibn">
-
-        </div>
