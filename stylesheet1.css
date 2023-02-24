@@ -26,7 +26,8 @@ body {background-image: url(https://th.bing.com/th/id/R.d8143ad0fc8f18f8f9b330f5
 
 
 @media(min-width:450px) {#carouselintogrid-resp{display: none;}}
-    @media (max-width:450px) {#carouselintogrid{display: none;}} 
+    @media (max-width:450px) {#carouselintogrid{display: none;}}
+    
 
 
 
