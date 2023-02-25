@@ -1,3 +1,4 @@
+
 /*NAVBAR*/
 .container-fluid {background-color: #111; height: 6em; padding: 0; }
 .a {text-decoration: none;}
@@ -11,7 +12,8 @@
 .buttonsubmit:hover {background-color:#a22 ; border-color: azure; color: azure; }
 #header {width: 100vw;}
 
-body {background-image: url(https://th.bing.com/th/id/R.d8143ad0fc8f18f8f9b330f5a6644b68?rik=7%2f%2b5rQcIdimk3w&pid=ImgRaw&r=0); }
+
+.body {background-image: url(https://th.bing.com/th/id/R.d8143ad0fc8f18f8f9b330f5a6644b68?rik=7%2f%2b5rQcIdimk3w&pid=ImgRaw&r=0) }
 
 
 
@@ -121,9 +123,13 @@ border-top: 1px solid white; padding: 5%; font-family: 'Bebas Neue';}
 /*FOOTER*/
 
 .instagramfooter {width: 25px;}
+.textoinsta {display: inline;}
 .whatsappfooter {width: 29px;}
+.textowhatsapp {display: inline;}
 .youtubefooter {width: 28px;}
+.textoyoutube {display: inline;}
 .facebookfooter {width: 28px;}
+.textofb {display: inline;}
 
 .copyright {margin-bottom: 2em;}
 .listadelinks {display: inline;}
@@ -139,6 +145,41 @@ footer{width: 100vw;}
 .donteamtituloindex2 {margin-bottom: 2em; margin-top: -0.4; font-family:'Bebas Neue', cursive; font-size: 2.5em; margin-left: -9.5em;}
 .textodepresentacion {text-align: center; margin-left: 37%; margin-right: 2%; color: #9c9c9c; font-family:'Poppins', sans-serif; font-size: 1.1em;}
 
+/*
+@media screen and (max-width:767px) {donteamtituloindex-responsive}
+@media screen (min-width:767px) and (max-width: 1023px) {flex-container-resp {display:none}}
+@media screen and (min-width: 1024px) {flex-container-resp {display:none}}
+*/
+
+@media only screen and (max-width: 767px) {
+  .flex-container { align-items: center; margin:1em; display: flex;}
+  .principalimage {max-width: 15em; margin-top: -97em; margin-right: 2.5em;}
+  .donteamtituloindex { font-size: 3.5em; margin-left: 2%; margin-right: .5%; margin: auto; margin-top: .7em; }
+  .donteamtituloindex2 { font-size: 1.1em; margin-left: 0em}
+  .textodepresentacion {margin:auto; font-size: x-large; margin-left: .5em; margin-right: .5em;}
+  .invitacion {margin-bottom: 1em; margin-top: 10em;}
+  .teesperamos{font-size: medium;}
+  .privacidadfooter {display: none;}
+  .navbar-toggler-icon {margin: 0;}
+  .home{margin-right: 1em;}
+  #navbarTogglerDemo03 .quienes {margin-left: 0;}
+  .navbar-collapse {background-color: #111;}
+  .d-flex {padding-bottom: 1em; margin:0}
+  .linkhomefooter {display: inline;}
+  .linkcontactofooter {display: inline;}
+  .linkquienessomosfooter {display: inline;}
+  .text-uppercase fw-bold mb-4 {margin-bottom:0;}
+  .col-md-3 {display: none;}
+  .text-white {padding:0} 
+  .copyright {margin-bottom: 0;}
+  .textoinsta {display: none; margin-left: 5em;} 
+  .textowhatsapp {display: none;}
+  .textoyoutube {display: none;}
+  .textofb {display: none;}
+  #navbarTogglerDemo03 {padding-left: 1em; padding-right: 1em;}
+
+
+}
 
 /*MAIN NUESTRAS SEDES*/
 
@@ -384,8 +425,27 @@ margin-bottom: .5em;}
 .grid-item-somos:nth-child(14) {text-align: center}
 
 
-.nombreprofe {font-family: 'Bebas Neue', cursive; font-size: 1.5em; display: inline; color: #9c9c9c; margin-top: -1em; }
+.nombreprofe {font-family: 'Bebas Neue', cursive; font-size: 1.4em; display: inline; color: #9c9c9c; margin-top: -1em; }
 .rolprofe { display: inline; color: #9c9c9c; margin-top: 1em; display: block;}
+
+/*
+@media screen and (max-width:767px)
+{@media screen and (min-width:767px) and (max-width: 1023px)}
+  {@media screen and (min-width: 1024px)}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*h2  {font-family:'Bebas Neue', cursive; float: right;clear: right; margin-right: 8em; margin-top: 0em; color: #fff!important;}
 h3  {font-family:'Bebas Neue', cursive; float: right; clear: right; margin-right: 12em; margin: top 0; color: #fff !important;}
