@@ -23,7 +23,7 @@
    
     
 
-<body>
+<body class="body">
 
  
 <header id="header">  
@@ -131,34 +131,34 @@
     PRÓXIMOS EVENTOS
   </h1>
 
-<div class="grid-item">
+<div id="evento1" class="grid-item" >
     <h4 class="meses">ENERO</h4>
   <p class="eventosdia"> 28 de Enero</p>
-    <img src="eventos/won.jpeg" alt="" class="imagenpelea1"></div>
+    <img src="eventos/won.jpeg" alt=""  class="imagenpelea1"></div>
 
   
-<button class="grid-item"><a href="https://wonrivieramaya.com/" target="_blank" class="textodebotonticket">Conseguí tus entradas</a> </button>
+<button  class="grid-item" id="buttoncompra1"> <a href="https://wonrivieramaya.com/" target="_blank" class="textodebotonticket">Conseguí tus entradas</a> </button>
 
 
 
 
-<div class="grid-item">
+<div id="evento2" class="grid-item">
   <h4 class="meses">FEBRERO</h4>
 <p class="eventosdia"> 12 de Febrero</p>
-  <img src="eventos/semipro.jpeg" alt="" class="imagenpelea3"></div>
+  <img src="eventos/semipro.jpeg" alt=""  class="imagenpelea3"></div>
 
 
 
 
-<button class="grid-item"><a href="https://www.passline.com/productora/main-event-championship" target="_blank" class="textodebotonticket">Conseguí tus entradas</a> </button>
+<button id="buttoncompra2" class="grid-item"><a href="https://www.passline.com/productora/main-event-championship" target="_blank" class="textodebotonticket">Conseguí tus entradas</a> </button>
 
-<div class="grid-item">
+<div id="evento3" class="grid-item">
   <h4 class="meses">MARZO</h4>
 <p class="eventosdia"> 5 de Marzo</p>
-  <img src="eventos/mainevent.jpeg" alt="" class="imagenpelea2"></div>
+  <img src="eventos/mainevent.jpeg" alt=""  class="imagenpelea2"></div>
 
 
-<button class="grid-item"><a href="https://www.passline.com/productora/main-event-championship" target="_blank" class="textodebotonticket">Conseguí tus entradas</a> </button>
+<button id="buttoncompra3" class="grid-item"><a href="https://www.passline.com/productora/main-event-championship" target="_blank" class="textodebotonticket">Conseguí tus entradas</a> </button>
 
 
 </div>
@@ -172,6 +172,7 @@
     
     
 
+   
     <footer class="text-center text-lg-start bg-dark text-muted">
       <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom text-white">
         <div class="me-5 d-none d-lg-block">
@@ -179,16 +180,16 @@
         </div>
         <div>
           <a href="https://instagram.com/donteamargentina?igshid=NDk5N2NlZjQ=" class="me-4 text-reset" target="_blank">
-            <img src="footer img/instagram.png" alt="" class="instagramfooter"> Donteamargentina</i>
+            <img src="footer img/instagram.png" alt="" class="instagramfooter"> <p class="textoinsta">Donteamargentina</p></i>
           </a>
           <a href="https://wa.me/111537050321" class="me-4 text-reset" target="_blank">
-            <img src="footer img/whatsapp.png" alt="" class="whatsappfooter"> (011)-3705-0321</i>
+            <img src="footer img/whatsapp.png" alt="" class="whatsappfooter"> <p class="textowhatsapp"> (011)-3705-0321</p></i>
           </a>
           <a href="https://www.youtube.com/@donteam3670" class="me-4 text-reset" target="_blank">
-            <img src="footer img/youtube.png" alt="" class="youtubefooter"> Don Team Argentina</i>
+            <img src="footer img/youtube.png" alt="" class="youtubefooter"> <p class="textoyoutube"> Don Team Argentina</p></i>
           </a>
           <a href="https://www.facebook.com/donteamargentina/?locale=es_LA" class="me-4 text-reset" target="_blank">
-            <img src="footer img/facebook.png" alt="" class="facebookfooter"> Don Team Argentina</i></a>
+            <img src="footer img/facebook.png" alt="" class="facebookfooter"><p class="textofb">Don Team Argentina </p></i></a>
         </div>
       </section>
   
@@ -197,20 +198,18 @@
           <div class="row mt-3">
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 class="text-uppercase fw-bold mb-4">
-                Links Útiles
+                Links Utiles
               </h6>
-              <ul class="listadelinks">
-              <li class="links">
+             <div class="linksimportantes">
+              <p class="linkhomefooter">
                 <a href="#!" class="text-reset">Home</a>
-              </li>
-              <li class="links">
+              </p>
+              <p class="linkcontactofooter">
                 <a href="#!" class="text-reset">Contacto</a>
-              </li>
-              <li class="links">
+              </p>
+              <p class="linkquienessomosfooter">
                 <a href="#!" class="text-reset">Quiénes somos</a>
-              </li>
-            </ul>
-            </div>
+              </p>
             </div>
             </div>
            
@@ -224,7 +223,7 @@
           <a class="text-reset fw-bold" href="https://mandalestart.com/">Mangiadonteam.com </a>
           by Aldana Cezer Meneghini
         </div>
-        <p>
+        <p class="privacidadfooter">
           Términos y condiciones de privacidad: Al utilizar nuestro sitio web, acepta nuestra
           política de privacidad, que incluye el uso de cookies y la recopilación de información para
           mejorar su
